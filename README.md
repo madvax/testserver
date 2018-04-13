@@ -60,21 +60,35 @@ nubmer to bind the server to using command line arguments.
 USAGE: delay-httpd.py 
 
 OPTIONS:
+
    -h --help       Display this message.
+
+
    -v --verbose    Runs the program in verbose mode
+
    -d --debug      Runs the program in debug mode (implies verbose)
+
    -i --IP_Address The IPv4 Address to use for the HTTP Server
+
    -p --port       The port number to use for the HTTP server
 
 EXIT CODES:
+
   0 - Clean Exit
+
   1 - Bad or missing command line argument
+
   2 - Invalid port specified, port must be an integer
+
   3 - Invalid port specified, port must be an integer between (1025-63354)
+
   4 - Invalid IPv4 Address specified
+
   5 - You must be root to bind to ports under 1024
+
   6 - Unable to start web server
-Other Non-Zero - Failure of some sort or another
+
+  Other Non-Zero - Failure of some sort or another
 
 NOTE: Some ports require administrator/root access to bind the server.
 
