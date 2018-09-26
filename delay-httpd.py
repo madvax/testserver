@@ -11,7 +11,7 @@
 # -- H. Wilson, March 2018
 
 # Note: To run as a daemon: 
-# sudo ./delay-httpd.py -i 129.196.196.183 >/dev/null 2>&1  &
+# sudo ./delay-httpd.py >/dev/null 2>&1  &
 
 # =============================================================================
 # STANDARD LIBRARY IMPORTS
