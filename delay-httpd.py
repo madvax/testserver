@@ -26,7 +26,7 @@ import json
 
 # =============================================================================
 # DICTIONARY
-VERSION        = "1.1.0"  # Version of the agent
+VERSION        = "1.2.0"  # Added default eth0 ip address
 DEBUG          = False    # Flag for debug operation
 VERBOSE        = False    # Flag for verbose operation
 FIRST          = 0        # first element in a list
@@ -59,6 +59,22 @@ TIME_FORMAT    = """
  \"Year without century decimal\"   : \"%y\",
  \"Year with century decimal\"      : \"%Y\",
  \"Time zone name\"                 : \"%Z\" }"""
+
+# =============================================================================
+# DEFINE THE DEFAULT IP_ADDRESS
+# try to use the IPv4 address for eth0 as the default IP Address
+try:
+   results = subprocess.Popen("sudo ifconfig eth0"      , 
+                              stdout = subprocess.PIPE  , 
+                              stderr = subprocess.PIPE  ,
+                              shell  = True             )      
+   STD_output, STD_error = results.communicate() 
+   for line in STD_output.split(os.linesep):
+      line = line.strip()
+      if line.startswith("inet "): 
+         IP_ADDRESS = line.split(" ")[1]
+         break
+except: pass # If anything goes wrong then 127.0.0.1 will be the default address
 
 # =============================================================================
 # CLASS HTTP SERVER
