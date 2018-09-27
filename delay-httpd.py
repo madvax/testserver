@@ -63,18 +63,14 @@ TIME_FORMAT    = """
 
 # =============================================================================
 # DEFINE THE DEFAULT IP_ADDRESS
-# try to use the IPv4 address for eth0 as the default IP Address
+# Try to use the IPv4 address for the "primary" network interface as the 
+# default IP Address.
 try:
-   results = subprocess.Popen("sudo ifconfig eth0"      , 
-                              stdout = subprocess.PIPE  , 
-                              stderr = subprocess.PIPE  ,
-                              shell  = True             )      
-   STD_output, STD_error = results.communicate() 
-   for line in STD_output.split(os.linesep):
-      line = line.strip()
-      if line.startswith("inet "): 
-         IP_ADDRESS = line.split(" ")[1]
-         break
+try:
+   s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+   s.connect(("8.8.8.8", 80))
+   IP_ADDRESS = s.getsockname()[0]
+   s.close()
 except: pass # If anything goes wrong then 127.0.0.1 will be the default address
 
 # =============================================================================
