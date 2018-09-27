@@ -68,7 +68,7 @@ TIME_FORMAT    = """
 try:
 try:
    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-   s.connect(("8.8.8.8", 80))
+   s.connect(("8.8.8.8", 80)) # google-public-dns-a.google.com
    IP_ADDRESS = s.getsockname()[0]
    s.close()
 except: pass # If anything goes wrong then 127.0.0.1 will be the default address
