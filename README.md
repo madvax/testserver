@@ -6,9 +6,9 @@ The Python script "delay-http.py" is a testing web server.
 You can use it in three ways:
 
 1.) You can specify a number of seconds to delay the respose of
-    a web page using the /delay in the url. The use this feature
-    run the script then, to get a three second delay usie the use
-    This URL:  http:/localhost/delay/3
+    a web page using the /delay in the url. To use this feature
+    run the script then, to get a three second delay use this
+    URL:  http:/localhost/delay/3
     The server will wait three sconds before sending the response.
     The server's response should look something like this:
    
@@ -26,7 +26,7 @@ You can use it in three ways:
                 "Message"      : "Internal Server Error",
                 "Gudance"      : "A generic error message, given when an unexpected condition was encountered and no more specific message is suitable."} }
 
-3.) You can also have the server provide larger JASON strings by 
+3.) You can also have the server provide larger JSON strings by 
     using /time in the url. To use this feature start the script 
     and use this URL: http://localhost/time
     The web server will return an HTTP status of 200 and provide 
